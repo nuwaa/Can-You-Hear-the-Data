@@ -13,6 +13,8 @@ Choose a language / 选择语言 / 選擇語言 / 言語を選択:
 
 **Visitor guide:** https://nuwaa.github.io/Can-You-Hear-the-Data/guide.html
 
+**ATOM S3R browser installer:** https://nuwaa.github.io/Can-You-Hear-the-Data/install.html
+
 **ATOM S3R hardware receiver / ATOM S3R受信機:** [setup, firmware, and compatibility](docs/ATOM_S3R_RECEIVER.md)
 
 **ATOM S3R support history / 対応履歴:** [2026-10-25 development record](docs/ATOM_S3R_SUPPORT_HISTORY.md)

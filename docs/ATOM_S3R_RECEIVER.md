@@ -6,6 +6,10 @@ This repository also records the [2026-10-25 ATOM S3R support history](ATOM_S3R_
 
 ## How to try it
 
+For a new ATOM S3R, use the [browser installer](https://nuwaa.github.io/Can-You-Hear-the-Data/install.html) in desktop Chrome or Edge. It needs an ATOMIC ECHO BASE and a USB data cable; no Arduino setup is needed. Confirm the selected board and understand that flashing replaces its existing firmware and saved settings. The installer ships the verified 2026-10-25 build as a merged image, with its SHA-256 shown on the page. Browser flashing has not yet been validated on physical hardware; the underlying firmware was validated on two ATOM S3R devices via Arduino CLI.
+
+For source builds:
+
 1. Build and flash the firmware using ESP32 Arduino core 3.3.2, M5Atomic-EchoBase 1.0.2, M5GFX 0.2.32, ESP32S3 Dev Module, 8 MB flash, Default 8MB partition, OPI PSRAM, and USB CDC On Boot enabled. Check the detected device before flashing.
 2. Power on the ATOM S3R. In normal boot mode, it automatically enters the web audio receive mode. Its USB serial console runs at 115200 bps; `ggwave web on` also starts this mode manually, and `ggwave web off` stops it.
 3. Open the [web app](https://nuwaa.github.io/Can-You-Hear-the-Data/) on another device. Select a preset or enter a message, then tap **Send with sound**. Place the speaker near the ATOM microphone. The ATOM does not need a browser or a separate receive command.
@@ -20,6 +24,8 @@ On 2026-10-25, the user flashed two ATOM S3R devices and confirmed automatic rec
 ATOM S3R + ATOMIC ECHO BASEは、このWebアプリが送るggwave Audible Normalの音を受信できます。ファームウェアのコード、ビルド手順、対応履歴、第三者ライセンスは上記の `AtomS3R-Acoustic-Modem` リポジトリにあります。
 
 今回の作業経緯は、このリポジトリの[ATOM S3R対応履歴](ATOM_S3R_SUPPORT_HISTORY.md)にも記録しています。
+
+新しいATOM S3Rへの導入には、デスクトップ版ChromeまたはEdgeの[ブラウザーインストーラー](https://nuwaa.github.io/Can-You-Hear-the-Data/install.html)を利用できます。ATOMIC ECHO BASEとUSBデータケーブルが必要です。Arduino環境は不要ですが、接続端末を確認してください。既存ファームウェアと保存設定は上書きされます。配布するファームウェア本体は2台で動作確認済みですが、ブラウザー経由の書き込みは実機未検証です。
 
 Arduino core 3.3.2、M5Atomic-EchoBase 1.0.2、M5GFX 0.2.32を使い、ESP32S3 Dev Module、Flash 8 MB、Default 8MB partition、OPI PSRAM、USB CDC On Boot有効でビルド・書き込みします。書き込み前に接続端末を確認してください。通常起動すると受信待機に自動で入ります。別の端末で[Webアプリ](https://nuwaa.github.io/Can-You-Hear-the-Data/)を開き、例文を選ぶか本文を入力して「音で送信」を押します。復号できた本文はATOMの小画面と115200 bpsのUSBシリアルに表示されます。ATOM側でWebページを開く必要はありません。
 

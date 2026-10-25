@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#07131b">
+  <meta name="description" content="Install the Can You Hear the Data? receiver firmware on ATOM S3R from a desktop browser.">
+  <link rel="icon" href="./icon.svg" type="image/svg+xml">
+  <title>ATOM S3R installer · Can You Hear the Data?</title>
+  <script type="module" src="https://unpkg.com/esp-web-tools@10.4.0/dist/web/install-button.js?module"></script>
+</head>
+<body>
+  <main class="shell installer-shell">
+    <header class="header">
+      <div class="brand">
+        <div class="eyebrow">CAN YOU HEAR THE DATA? / ATOM S3R</div>
+        <h1>ブラウザーで受信機をインストール</h1>
+        <p class="subtitle">Install the receiver firmware from your browser.</p>
+      </div>
+    </header>
+    <p><a class="guide-back" href="./">← Webアプリ / Web app</a></p>
+    <section class="panel installer-panel">
+      <h2>準備 / Before you start</h2>
+      <ol class="guide-steps">
+        <li>ATOM S3R に ATOMIC ECHO BASE を装着します。<br><span lang="en">Attach an ATOMIC ECHO BASE to your ATOM S3R.</span></li>
+        <li>Windows、macOS、Linux の Chrome または Edge でこのページを開き、USBデータケーブルで ATOM S3R を接続します。シリアルモニターは閉じてください。<br><span lang="en">Use Chrome or Edge on a desktop computer, connect the board with a USB data cable, and close any serial monitor.</span></li>
+        <li>下の確認欄をチェックして「INSTALL」を押し、接続した端末を選びます。書き込みの確認画面でも内容を確認してください。<br><span lang="en">Check both boxes, press INSTALL, select your board, and review the flash confirmation.</span></li>
+      </ol>
+      <p class="installer-warning">この操作で選択した端末の既存ファームウェアと保存設定が上書きされます。対象は ATOM S3R 専用です。<br><span lang="en">This replaces firmware and saved settings on the selected device. This build is for ATOM S3R only.</span></p>
+      <label class="installer-check"><input id="confirm-board" type="checkbox"> 接続した端末は ATOM S3R です / The connected board is an ATOM S3R.</label>
+      <label class="installer-check"><input id="confirm-erase" type="checkbox"> 既存のファームウェアと設定の上書きを了承します / I understand the existing firmware and settings will be replaced.</label>
+      <p id="browser-status" class="installer-status" role="status"></p>
+      <div id="installer-control" hidden>
+        <esp-web-install-button manifest="./firmware/atom-s3r/manifest.json"></esp-web-install-button>
+      </div>
+    </section>
+    <section class="panel installer-panel">
+      <h2>書き込み後 / After installation</h2>
+      <p>USBを接続し直すか再起動すると、自動でWebアプリの <strong>ggwave Audible Normal</strong> の受信待機に入ります。Webアプリから短い文章を送信して、ATOM S3R の画面を確認してください。<br><span lang="en">Reconnect or restart the board. It will listen automatically for ggwave Audible Normal messages from the web app. Send a short message and check the screen.</span></p>
+      <p><a href="./firmware/atom-s3r/atoms3r-2026-10-25-merged.bin" download>ファームウェアをダウンロード / Download firmware</a><br><small>2026-10-25 · SHA-256 <code>cb56a9d5905437ce034bc71c88ffb731ab5c09648e004527efa2989a855b6960</code></small></p>
+      <p><a href="https://github.com/nuwaa/AtomS3R-Acoustic-Modem/tree/feature/ggwave">ソースコードとビルド手順 / Source and build instructions</a></p>
+    </section>
+  </main>
+  <script type="module" src="/src/install.ts"></script>
+</body>
+</html>

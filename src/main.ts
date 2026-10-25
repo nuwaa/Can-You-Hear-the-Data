@@ -28,6 +28,7 @@ function render() {
   const language = el('div','language'); language.setAttribute('aria-label',m.language);
   for (const [key,label] of languageOptions) { const b=el('button',key===lang?'selected':'',label); b.type='button'; b.onclick=()=>{lang=key;render();}; language.append(b); } header.append(language);
   const guide=el('a','guide-link',m.guide+' ↗'); guide.href=`./guide.html#lang=${lang}`; shell.append(guide);
+  const install=el('a','guide-link','ATOM S3R installer ↗'); install.href='./install.html'; shell.append(install);
   const grid=el('div','grid'); shell.append(grid);
   const rx=el('section','panel receiver'); grid.append(rx);
   const rxHead=el('div','section-head'); rxHead.append(el('span','kicker','01 / '+m.receive),el('span','status '+(link.active?'on':''),statusText|| (link.active?m.listening:m.idle))); rx.append(rxHead);
