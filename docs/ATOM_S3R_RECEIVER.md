@@ -6,7 +6,7 @@ This repository also records the [2026-10-25 ATOM S3R support history](ATOM_S3R_
 
 ## How to try it
 
-For a new ATOM S3R, use the [browser installer](https://nuwaa.github.io/Can-You-Hear-the-Data/install.html) in desktop Chrome or Edge. It is also available in [English](https://nuwaa.github.io/Can-You-Hear-the-Data/install.en.html), [Simplified Chinese](https://nuwaa.github.io/Can-You-Hear-the-Data/install.zh-CN.html), [Traditional Chinese](https://nuwaa.github.io/Can-You-Hear-the-Data/install.zh-TW.html), and [Japanese](https://nuwaa.github.io/Can-You-Hear-the-Data/install.ja.html). It needs an ATOMIC ECHO BASE and a USB data cable; no Arduino setup is needed. Confirm the selected board and understand that flashing replaces its existing firmware and saved settings. The installer ships the 2026-10-26 build as a merged image, with its SHA-256 shown on the page. This build preserves line breaks received from the web app and displays them as separate lines on the ATOM screen. The previous build was confirmed to flash successfully from a browser on an ATOM S3R on 2026-10-26; the updated line-break build still requires hardware confirmation.
+For a new ATOM S3R, use the [browser installer](https://nuwaa.github.io/Can-You-Hear-the-Data/install.html) in desktop Chrome or Edge. It is also available in [English](https://nuwaa.github.io/Can-You-Hear-the-Data/install.en.html), [Simplified Chinese](https://nuwaa.github.io/Can-You-Hear-the-Data/install.zh-CN.html), [Traditional Chinese](https://nuwaa.github.io/Can-You-Hear-the-Data/install.zh-TW.html), and [Japanese](https://nuwaa.github.io/Can-You-Hear-the-Data/install.ja.html). It needs an ATOMIC ECHO BASE and a USB data cable; no Arduino setup is needed. Confirm the selected board and understand that flashing replaces its existing firmware and saved settings. The installer ships the 2026-10-26 build as a merged image, with its SHA-256 shown on the page. This build preserves line breaks received from the web app and displays them as separate lines on the ATOM screen. On 2026-10-26, the user installed this build from the browser on two ATOM S3R units and confirmed correct multiline display on both devices.
 
 For source builds:
 
@@ -17,7 +17,7 @@ For source builds:
 
 This is a receive-only path for the web app's ggwave Audible Normal signal. The ATOM's separate fixed-length DT chat/ACK mode is a different protocol. Sound playback alone is not a delivery acknowledgment. Reception depends on volume, distance, background noise, and browser audio settings.
 
-On 2026-10-25, the user flashed two ATOM S3R devices and confirmed automatic receive mode and display behavior. The user also confirmed that red appears correctly in ❤️ and 🇯🇵 after an RGB565 display fix. Detailed browser sample rates, distances, and success rates were not recorded.
+On 2026-10-25, the user flashed two ATOM S3R devices and confirmed automatic receive mode and display behavior. The user also confirmed that red appears correctly in ❤️ and 🇯🇵 after an RGB565 display fix. On 2026-10-26, both devices passed browser installation of the updated firmware and acoustic reception and display of text containing a line break. Detailed computer and browser versions, sample rates, distances, attempt counts, and success rates were not recorded.
 
 ## 日本語
 
@@ -25,7 +25,7 @@ ATOM S3R + ATOMIC ECHO BASEは、このWebアプリが送るggwave Audible Norma
 
 今回の作業経緯は、このリポジトリの[ATOM S3R対応履歴](ATOM_S3R_SUPPORT_HISTORY.md)にも記録しています。
 
-新しいATOM S3Rへの導入には、デスクトップ版ChromeまたはEdgeの[ブラウザーインストーラー](https://nuwaa.github.io/Can-You-Hear-the-Data/install.ja.html)を利用できます。英語・簡体字・繁体字・日本語のページがあります。ATOMIC ECHO BASEとUSBデータケーブルが必要です。Arduino環境は不要ですが、接続端末を確認してください。既存ファームウェアと保存設定は上書きされます。2026-10-26版はWebアプリから受信した改行をATOM画面で保持します。旧版のブラウザー書き込みは実機確認済みですが、この改行対応版の実機確認は未実施です。
+新しいATOM S3Rへの導入には、デスクトップ版ChromeまたはEdgeの[ブラウザーインストーラー](https://nuwaa.github.io/Can-You-Hear-the-Data/install.ja.html)を利用できます。英語・簡体字・繁体字・日本語のページがあります。ATOMIC ECHO BASEとUSBデータケーブルが必要です。Arduino環境は不要ですが、接続端末を確認してください。既存ファームウェアと保存設定は上書きされます。2026-10-26版はWebアプリから受信した改行をATOM画面で保持します。同日、ユーザーがブラウザーから2台へ書き込み、改行を含む本文が両方の画面で正しく複数行表示されることを確認しました。
 
 Arduino core 3.3.2、M5Atomic-EchoBase 1.0.2、M5GFX 0.2.32を使い、ESP32S3 Dev Module、Flash 8 MB、Default 8MB partition、OPI PSRAM、USB CDC On Boot有効でビルド・書き込みします。書き込み前に接続端末を確認してください。通常起動すると受信待機に自動で入ります。別の端末で[Webアプリ](https://nuwaa.github.io/Can-You-Hear-the-Data/)を開き、例文を選ぶか改行を含む本文を入力して「音で送信」を押します。復号できた本文は改行を保持してATOMの小画面と115200 bpsのUSBシリアルに表示されます。ATOM側でWebページを開く必要はありません。
 
