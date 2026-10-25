@@ -22,7 +22,15 @@ try {
     assert.equal(await page.locator('h1').textContent(), '文字を音で送ろう');
     await page.getByRole('link', { name: /アプリに戻る/ }).click();
     assert.equal(await page.locator('h1').textContent(), 'Can You Hear the Data?');
+    await page.getByRole('button', { name: 'ｽﾀｯｸﾁｬﾝは持ってますよね？' }).click();
+    assert.equal(await page.locator('textarea').inputValue(), 'ｽﾀｯｸﾁｬﾝは持ってますよね？');
     await page.getByRole('button', { name: 'EN', exact: true }).click();
+    assert.equal(await page.locator('.preset-group').count(), 3);
+    assert.equal(await page.locator('.preset').count(), 11);
+    await page.getByRole('button', { name: 'Can you hear the data?' }).click();
+    assert.equal(await page.locator('textarea').inputValue(), 'Can you hear the data?');
+    await page.getByRole('button', { name: 'Go get one!' }).click();
+    assert.equal(await page.locator('textarea').inputValue(), 'Go get one!');
     await page.locator('textarea').fill('你'.repeat(47));
     assert.equal(await page.locator('.send').isEnabled(), false);
     await page.locator('textarea').fill('Hello Maker Faire!');
@@ -43,6 +51,8 @@ try {
   const taiwanPage = await taiwan.newPage();
   await taiwanPage.goto('http://127.0.0.1:4173/');
   assert.equal(await taiwanPage.locator('.listen').textContent(), '開始接收');
+  await taiwanPage.getByRole('button', { name: '快去入手一個！' }).click();
+  assert.equal(await taiwanPage.locator('textarea').inputValue(), '快去入手一個！');
   await taiwanPage.getByRole('link', { name: /使用說明/ }).click();
   await taiwanPage.getByRole('heading', { name: '用聲音傳送文字' }).waitFor();
   await taiwan.close();

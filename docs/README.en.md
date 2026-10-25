@@ -12,6 +12,8 @@ An independent, static acoustic data communication web app for Maker Faire Shenz
 
 **Visitor guide:** https://nuwaa.github.io/Can-You-Hear-the-Data/guide.html
 
+Preset messages are grouped into **Start here**, **Keep talking**, and **M5Stack talk**. The conversation and M5Stack messages follow the selected UI language, so visitors can exchange a question and reply without typing.
+
 ## One sound, many receivers
 
 Communication is not limited to a pair of devices. Like an ordinary spoken conversation, anyone within range of the sound can take part if their device can decode it; no recipient needs to be addressed in advance. A PC can play one signal and multiple visitors can listen with their own phones or tablets at the same time. Each receiver opens the app and taps **Start listening**; the sender selects a preset or enters text and taps **Send with sound**. Any visitor can also use their device to send a reply. No pairing or list of recipients is needed. Reception depends on distance, speaker output, and surrounding noise; playback completion does not confirm that every device decoded the message.
@@ -61,7 +63,7 @@ Automated tests cover the 140-byte UTF-8 boundary, an actual ggwave Audible Norm
 
 The following physical-device checks remain **unverified** for this app:
 
-1. This app → this app: systematically send all five preset messages between devices and compare exact UTF-8 text, including repeated trials in venue noise.
+1. This app → this app: systematically send all preset messages between devices and compare exact UTF-8 text, including repeated trials in venue noise.
 2. Klesis → this app and this app → Klesis: use Audible Normal on both sides and compare exact text.
 3. This app → existing ATOM S3R web receiver: enable its `ggwave web on` mode, send the presets from a 48 kHz browser, and compare its display / `GGWAVE WEB RX TEXT:` output.
 4. Browser-specific coverage on Android Chrome and iOS Safari, including offline use, permission restart, different sample rates, venue noise, and long listening sessions. iPhone testing has not been reported.
