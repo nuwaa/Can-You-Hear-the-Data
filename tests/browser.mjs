@@ -8,6 +8,17 @@ try {
     const errors = []; page.on('pageerror', error => errors.push(error.message));
     await page.goto('http://127.0.0.1:4173/');
     assert.equal(await page.locator('h1').textContent(), 'Can You Hear the Data?');
+    await page.getByRole('link', { name: /How to use/ }).click();
+    assert.match(page.url(), /guide\.html#lang=en/);
+    await page.getByRole('heading', { name: 'Send text through sound' }).waitFor();
+    assert.equal(await page.locator('.guide-steps li').count(), 9);
+    await page.getByRole('button', { name: '中文' }).click();
+    assert.equal(await page.locator('h1').textContent(), '用声音发送文字');
+    await page.getByRole('button', { name: '日本語' }).click();
+    assert.equal(await page.locator('h1').textContent(), '文字を音で送ろう');
+    await page.getByRole('link', { name: /アプリに戻る/ }).click();
+    assert.equal(await page.locator('h1').textContent(), 'Can You Hear the Data?');
+    await page.getByRole('button', { name: 'EN', exact: true }).click();
     await page.locator('textarea').fill('你'.repeat(47));
     assert.equal(await page.locator('.send').isEnabled(), false);
     await page.locator('textarea').fill('Hello Maker Faire!');
@@ -28,6 +39,8 @@ try {
   await offline.waitForFunction(() => navigator.serviceWorker?.controller !== null);
   await offline.context().setOffline(true); await offline.reload();
   assert.equal(await offline.locator('h1').textContent(), 'Can You Hear the Data?');
+  await offline.getByRole('link', { name: /How to use/ }).click();
+  assert.match(offline.url(), /guide\.html/);
   await offline.close();
-  console.log('Browser checks passed: mobile, desktop, byte limit, microphone denial, offline reload');
+  console.log('Browser checks passed: mobile, desktop, multilingual guide, byte limit, microphone denial, offline app and guide');
 } finally { await browser.close(); }

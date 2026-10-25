@@ -28,6 +28,8 @@ The `dist/` directory can be hosted as a static site on GitHub Pages, Cloudflare
 
 The repository includes a GitHub Pages workflow that tests, builds, and deploys the app on every push to `main`. A repository administrator must select **Settings → Pages → Build and deployment → Source: GitHub Actions** once. After a successful `Publish web app` run, use the HTTPS URL shown in the deployment job. The expected URL for the current repository is `https://nuwaa.github.io/Can-You-Hear-the-Data/`; verify that it responds before distributing it or making a QR code. Visitors only need a modern browser—no Node.js or npm installation. The first load requires internet; subsequent loads can use the cached app offline. For microphone access, keep the HTTPS origin and grant browser permission.
 
+The app links to a short [visitor guide](https://nuwaa.github.io/Can-You-Hear-the-Data/guide.html) in Simplified Chinese, English, and Japanese. It explains receiving, sending, microphone permission, and troubleshooting. The guide includes a QR code for visitors to open it on their own phones. Visitors can use the preset messages without typing. The guide and its QR code are part of the static build and do not contact a third-party service.
+
 ## How it works
 
 - The transmitter uses official ggwave 0.4.0, variable-length framing, **Audible Normal protocol 0**, and a 140 UTF-8 byte limit. It shows playback completion, which is **not** a delivery acknowledgment.
