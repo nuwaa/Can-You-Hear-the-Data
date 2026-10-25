@@ -1,6 +1,6 @@
 import type { Lang } from './locale';
 
-export const STARTER_PRESETS = ['你好深圳！', '哈囉，台灣！', 'Hello Maker Faire!', 'こんにちは！', '数据传输成功！'] as const;
+export const STARTER_PRESETS = ['你好深圳！', 'Hello Maker Faire!', 'こんにちは！', '数据传输成功！'] as const;
 
 export const CONVERSATION_PRESETS: Record<Lang, readonly string[]> = {
   zh: ['听得到吗？', '收到了！'],

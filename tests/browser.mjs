@@ -26,7 +26,7 @@ try {
     assert.equal(await page.locator('textarea').inputValue(), 'ｽﾀｯｸﾁｬﾝは持ってますよね？');
     await page.getByRole('button', { name: 'EN', exact: true }).click();
     assert.equal(await page.locator('.preset-group').count(), 3);
-    assert.equal(await page.locator('.preset').count(), 11);
+    assert.equal(await page.locator('.preset').count(), 10);
     await page.getByRole('button', { name: 'Can you hear the data?' }).click();
     assert.equal(await page.locator('textarea').inputValue(), 'Can you hear the data?');
     await page.getByRole('button', { name: 'Go get one!' }).click();
