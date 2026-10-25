@@ -43,14 +43,14 @@ The design follows ggwave's public API and the documented Audible Normal mode in
 
 Automated tests cover the 140-byte UTF-8 boundary, an actual ggwave Audible Normal encode/decode round trip, production build, mobile and desktop browser UI, microphone denial, and offline reload. These tests do **not** prove over-the-air delivery.
 
-**User-reported physical check (2026-10-25):** The published site displayed and both sending and receiving worked on a PC and an iPad. The user also reported successful testing with three PCs. Browser versions, sample rates, distances, message set, and noise level were not recorded, so these results do not establish a measured success rate or coverage of every browser.
+**User-reported physical check (2026-10-25):** The published site displayed and bidirectional acoustic messaging worked among PCs, an iPad, and an Android device. The user also reported successful testing with three PCs. Browser versions, sample rates, distances, message set, and noise level were not recorded, so these results do not establish a measured success rate or coverage of every browser.
 
 The following physical-device checks remain **unverified** for this app:
 
 1. This app → this app: systematically send all four preset messages between devices and compare exact UTF-8 text, including repeated trials in venue noise.
 2. Klesis → this app and this app → Klesis: use Audible Normal on both sides and compare exact text.
 3. This app → existing ATOM S3R web receiver: enable its `ggwave web on` mode, send the presets from a 48 kHz browser, and compare its display / `GGWAVE WEB RX TEXT:` output.
-4. Repeat on Android Chrome and iOS Safari, including offline use, permission restart, different sample rates, venue noise, and long listening sessions.
+4. Browser-specific coverage on Android Chrome and iOS Safari, including offline use, permission restart, different sample rates, venue noise, and long listening sessions. iPhone testing has not been reported.
 
 No ATOM S3R firmware is changed here. The ATOM's separate fixed-length DT chat/ACK mode is not the target of this web app. A played sound is not proof that any receiver decoded it.
 
