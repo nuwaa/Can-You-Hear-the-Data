@@ -1,5 +1,6 @@
 import './style.css';
 import { languageOptions, selectLanguage, type Lang } from './locale';
+import { authorFooter } from './footer';
 
 type Message = {
   title: string; intro: string; app: string; guide: string; before: string;
@@ -112,6 +113,7 @@ integrity.append(el('code', '', 'da4da02dca2d090aabdb711bfee97cd1ddd3445b35e045b
 download.append(firmware, document.createElement('br'), integrity); after.append(download);
 const source = el('p', ''); source.append(link(m.source, 'https://github.com/nuwaa/AtomS3R-Acoustic-Modem/tree/feature/ggwave'));
 after.append(source); shell.append(after);
+shell.append(authorFooter(lang));
 function update() {
   const supported = window.isSecureContext && 'serial' in navigator;
   control.hidden = !supported || !board.checked || !overwrite.checked;

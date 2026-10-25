@@ -1,6 +1,7 @@
 import './style.css';
 import QRCode from 'qrcode';
 import { languageOptions, selectLanguage, type Lang } from './locale';
+import { authorFooter } from './footer';
 
 const copy = {
   zh: {
@@ -36,5 +37,6 @@ function render() {
   const notes=node('section','panel guide-panel guide-notes','');notes.append(node('div','kicker','05'),node('h2','',m.notes),node('p','',m.notesBody));shell.append(notes);
   if(location.protocol==='https:') { const qr=node('section','panel guide-qr','');qr.append(node('h2','',m.scan));const canvas=node('canvas','qr-canvas','');qr.append(canvas);shell.append(qr);QRCode.toCanvas(canvas,new URL('./guide.html',location.href).href,{width:210,margin:2,color:{dark:'#07131b',light:'#ffffff'}}).catch(()=>qr.remove()); }
   const back=node('a','guide-back',m.back+' →');back.href=`./#lang=${lang}`;shell.append(back);
+  shell.append(authorFooter(lang));
 }
 render();

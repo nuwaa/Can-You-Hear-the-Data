@@ -9,20 +9,27 @@ try {
     const errors = []; page.on('pageerror', error => errors.push(error.message));
     await page.goto(baseUrl);
     assert.equal(await page.locator('h1').textContent(), 'Can You Hear the Data?');
+    assert.match(await page.locator('.site-footer').textContent(), /Made by TOMINAGA/);
+    assert.equal(await page.locator('.site-footer a').getAttribute('href'), 'https://x.com/4989er');
     await page.getByRole('link', { name: /How to use/ }).click();
+    assert.match(await page.locator('.site-footer').textContent(), /Made by TOMINAGA/);
     assert.match(page.url(), /guide\.html#lang=en/);
     await page.getByRole('heading', { name: 'Send text through sound' }).waitFor();
     assert.equal(await page.locator('.guide-steps li').count(), 9);
     await page.getByRole('button', { name: '简体' }).click();
     assert.equal(await page.locator('h1').textContent(), '用声音发送文字');
+    assert.match(await page.locator('.site-footer').textContent(), /富永制作/);
     await page.getByRole('button', { name: '繁體' }).click();
     assert.equal(await page.locator('h1').textContent(), '用聲音傳送文字');
+    assert.match(await page.locator('.site-footer').textContent(), /富永製作/);
     assert.equal(await page.locator('html').getAttribute('lang'), 'zh-TW');
     assert.equal(await page.locator('.guide-steps li').count(), 9);
     await page.getByRole('button', { name: '日本語' }).click();
     assert.equal(await page.locator('h1').textContent(), '文字を音で送ろう');
+    assert.match(await page.locator('.site-footer').textContent(), /富永がつくりました/);
     await page.getByRole('link', { name: /アプリに戻る/ }).click();
     assert.equal(await page.locator('h1').textContent(), 'Can You Hear the Data?');
+    assert.match(await page.locator('.site-footer').textContent(), /富永がつくりました/);
     await page.getByRole('button', { name: 'ｽﾀｯｸﾁｬﾝは持ってますよね？' }).click();
     assert.equal(await page.locator('textarea').inputValue(), 'ｽﾀｯｸﾁｬﾝは持ってますよね？');
     await page.getByRole('button', { name: 'EN', exact: true }).click();
@@ -61,6 +68,18 @@ try {
   await taiwanPage.getByRole('link', { name: /使用說明/ }).click();
   await taiwanPage.getByRole('heading', { name: '用聲音傳送文字' }).waitFor();
   await taiwan.close();
+  for (const [pageName, attribution] of [
+    ['install.en.html', 'Made by TOMINAGA'],
+    ['install.zh-CN.html', '富永制作'],
+    ['install.zh-TW.html', '富永製作'],
+    ['install.ja.html', '富永がつくりました'],
+  ]) {
+    const installer = await browser.newPage();
+    await installer.goto(new URL(pageName, baseUrl).href);
+    assert.match(await installer.locator('.site-footer').textContent(), new RegExp(attribution));
+    assert.equal(await installer.locator('.site-footer a').getAttribute('href'), 'https://x.com/4989er');
+    await installer.close();
+  }
   const offline = await browser.newPage(); await offline.goto(baseUrl);
   await offline.waitForFunction(() => navigator.serviceWorker?.controller !== null);
   await offline.context().setOffline(true); await offline.reload();
@@ -68,5 +87,5 @@ try {
   await offline.getByRole('link', { name: /How to use/ }).click();
   assert.match(offline.url(), /guide\.html/);
   await offline.close();
-  console.log('Browser checks passed: mobile, desktop, multilingual guide, byte limit, microphone denial, offline app and guide');
+  console.log('Browser checks passed: mobile, desktop, multilingual guide and installer, author footer, byte limit, microphone denial, offline app and guide');
 } finally { await browser.close(); }

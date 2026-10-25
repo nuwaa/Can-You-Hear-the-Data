@@ -3,6 +3,7 @@ import { AudioLink } from './audio';
 import { byteCount, MAX_BYTES, validMessage } from './codec';
 import { languageOptions, selectLanguage, type Lang } from './locale';
 import { STARTER_PRESETS, CONVERSATION_PRESETS, M5STACK_PRESETS } from './presets';
+import { authorFooter } from './footer';
 
 const messages = {
   en: { subtitle:'TEXT TRAVELS THROUGH SOUND', guide:'How to use', language:'Language', spectrum:'AUDIO SPECTRUM / LIVE INPUT', level:'LEVEL', bytes:'UTF-8 bytes', receive:'RECEIVE', transmit:'TRANSMIT', idle:'Microphone off', listening:'Listening for sound…', start:'Start listening', stop:'Stop listening', latest:'Latest message', empty:'Waiting for a message', history:'Recent messages', noHistory:'Nothing received yet', copy:'Copy', compose:'Your message', placeholder:'Type something to send by sound', send:'Send with sound', sending:'Playing audio…', played:'Audio played · delivery unconfirmed', duration:'About', seconds:'seconds', protocol:'Audio mode', normal:'Audible Normal · compatible with ATOM web receiver', presets:'Try a message', starter:'Start here', conversation:'Keep talking', maker:'M5Stack talk', privacy:'Nearby devices can hear this signal. Audio stays on this device.', error:'Audio unavailable', wake:'Keep this screen awake while receiving.', permission:'Allow microphone access to receive.', byteLimit:'Limit: 140 UTF-8 bytes', retry:'Try again in a quieter place.' },
@@ -60,6 +61,7 @@ function render() {
   addPresetGroup(m.maker,M5STACK_PRESETS[lang]);
   const settings=el('section','panel settings');grid.append(settings);settings.append(el('div','kicker','04 / '+m.protocol),el('div','protocol',m.normal),el('p','hint',m.privacy));
   if(statusText && (statusText.includes('Error')||statusText.includes(m.error)))shell.append(el('div','alert',statusText+' '+m.retry));
+  shell.append(authorFooter(lang));
   draw(canvas);
 }
 let draft='';

@@ -7,4 +7,5 @@
 .guide-qr{margin-top:16px;text-align:center}.guide-qr h2{font-size:18px;margin:0 0 16px}.guide-qr .qr-canvas{width:210px;height:210px;max-width:100%;margin:auto;border-radius:8px}
 .preset-group+.preset-group{margin-top:18px}.preset-category{font-size:11px;font-weight:600;color:#8ec3c0;letter-spacing:.05em;margin:0 0 8px}.preset{min-height:42px}
 .latest,.history-row span{white-space:pre-wrap}
+.site-footer{margin-top:44px;padding-top:18px;border-top:1px solid #25434a;color:#8aa9ac;font-size:13px;text-align:center}.site-footer a{color:#baf9e8;text-underline-offset:3px}.site-footer a:hover{color:#43e3c3}
 @media(max-width:800px){.guide-grid{grid-template-columns:1fr}.guide-panel h2{font-size:22px}.guide-intro{font-size:15px}.guide-cta{width:100%}.guide-link{margin:0 0 16px}}
