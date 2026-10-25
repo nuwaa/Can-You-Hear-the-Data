@@ -12,8 +12,12 @@ try {
     assert.match(page.url(), /guide\.html#lang=en/);
     await page.getByRole('heading', { name: 'Send text through sound' }).waitFor();
     assert.equal(await page.locator('.guide-steps li').count(), 9);
-    await page.getByRole('button', { name: '中文' }).click();
+    await page.getByRole('button', { name: '简体' }).click();
     assert.equal(await page.locator('h1').textContent(), '用声音发送文字');
+    await page.getByRole('button', { name: '繁體' }).click();
+    assert.equal(await page.locator('h1').textContent(), '用聲音傳送文字');
+    assert.equal(await page.locator('html').getAttribute('lang'), 'zh-TW');
+    assert.equal(await page.locator('.guide-steps li').count(), 9);
     await page.getByRole('button', { name: '日本語' }).click();
     assert.equal(await page.locator('h1').textContent(), '文字を音で送ろう');
     await page.getByRole('link', { name: /アプリに戻る/ }).click();
@@ -35,6 +39,13 @@ try {
   assert.match(await denied.locator('.alert').textContent(), /Permission denied/);
   assert.equal(await denied.locator('.listen').isEnabled(), true);
   await context.close();
+  const taiwan = await browser.newContext({ locale: 'zh-TW' });
+  const taiwanPage = await taiwan.newPage();
+  await taiwanPage.goto('http://127.0.0.1:4173/');
+  assert.equal(await taiwanPage.locator('.listen').textContent(), '開始接收');
+  await taiwanPage.getByRole('link', { name: /使用說明/ }).click();
+  await taiwanPage.getByRole('heading', { name: '用聲音傳送文字' }).waitFor();
+  await taiwan.close();
   const offline = await browser.newPage(); await offline.goto('http://127.0.0.1:4173/');
   await offline.waitForFunction(() => navigator.serviceWorker?.controller !== null);
   await offline.context().setOffline(true); await offline.reload();
