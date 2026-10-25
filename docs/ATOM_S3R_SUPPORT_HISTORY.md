@@ -1,4 +1,4 @@
-# ATOM S3R対応履歴（2026年10月25日）
+# ATOM S3R対応履歴（2026年10月25〜26日）
 
 このページは、[Can You Hear the Data?](../README.md) の音をATOM S3Rで受信・表示できるようにした今回の作業を記録する。ファームウェアの実装と詳細な開発日記は [AtomS3R-Acoustic-ModemのPR #2](https://github.com/nuwaa/AtomS3R-Acoustic-Modem/pull/2) にあり、このリポジトリにはWebアプリから見た経緯を残す。
 
@@ -16,3 +16,13 @@
 - ブラウザのサンプルレート、端末間距離、騒音条件、各メッセージの成功率は記録していない。再生完了はATOMでの復号成功や送達確認を意味しない。
 
 利用手順と現在の制約は[ATOM S3R受信ガイド](ATOM_S3R_RECEIVER.md)を参照。
+
+## 2026年10月26日 — ブラウザーから導入できるようにする
+
+Arduino開発環境を構築せずにATOM S3Rへ導入できるよう、[PR #4](https://github.com/nuwaa/Can-You-Hear-the-Data/pull/4)で[ESP Web Tools](https://esphome.github.io/esp-web-tools/)を使う[インストーラー](https://nuwaa.github.io/Can-You-Hear-the-Data/install.html)を追加した。対象はATOM S3R + ATOMIC ECHO BASE。PC版ChromeまたはEdgeからUSB接続し、機種と既存ファームウェア・保存設定の上書きを確認してから端末を選ぶ。ブラウザーがESP32-S3を検出してもATOM S3Rと断定はできないため、端末の確認を利用者に求める構成にした。
+
+配布するのは10月25日に実機で確認したアプリ、ブートローダー、パーティションを含むESP32-S3用統合イメージ。Arduinoの8 MB統合ファイルの末尾にあった未使用の `0xFF` 領域だけを除いて3,080,192バイトにした。配布ファイルのSHA-256は `cb56a9d5905437ce034bc71c88ffb731ab5c09648e004527efa2989a855b6960`。この値は上記のアプリ単体バイナリのSHA-256とは異なる。ビルド時にサイズ、ハッシュ、ブートローダー・パーティション・アプリの配置を検査し、GitHub Pagesから配信されたファイルのハッシュも照合した。
+
+公開後、ユーザーがブラウザー経由でATOM S3Rへ書き込み、正常に動作したことを確認した。書き込みを試した台数、PCのOS・ブラウザー版、所要時間、失敗率は記録していない。今回の実機確認はブラウザー書き込みとその後の動作についてであり、4言語版それぞれから書き込む試験とは区別する。
+
+[PR #5](https://github.com/nuwaa/Can-You-Hear-the-Data/pull/5)では、インストーラーの[英語](https://nuwaa.github.io/Can-You-Hear-the-Data/install.en.html)、[簡体字](https://nuwaa.github.io/Can-You-Hear-the-Data/install.zh-CN.html)、[繁体字](https://nuwaa.github.io/Can-You-Hear-the-Data/install.zh-TW.html)、[日本語](https://nuwaa.github.io/Can-You-Hear-the-Data/install.ja.html)の固定URLを追加した。従来の `install.html` はブラウザー言語に合わせる入口として残し、Webアプリ・来場者ガイド・各言語のREADMEから対応ページへ移動できるようにした。既存テスト4件と本番ビルドを通し、4ページの言語・リンク・manifest参照・書き込み前の2項目確認をヘッドレスChromeで確認した。ファームウェアとmanifestはPR #5で変更していない。デプロイ後、4ページがGitHub Pagesから配信されることも確認した。

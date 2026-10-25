@@ -19,4 +19,4 @@ Language-specific installer pages: [English](https://nuwaa.github.io/Can-You-Hea
 
 **ATOM S3R hardware receiver / ATOM S3R受信機:** [setup, firmware, and compatibility](docs/ATOM_S3R_RECEIVER.md)
 
-**ATOM S3R support history / 対応履歴:** [2026-10-25 development record](docs/ATOM_S3R_SUPPORT_HISTORY.md)
+**ATOM S3R support history / 対応履歴:** [2026-10-25–26 development and installer record](docs/ATOM_S3R_SUPPORT_HISTORY.md)
