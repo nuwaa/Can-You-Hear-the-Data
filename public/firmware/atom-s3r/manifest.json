@@ -1,13 +1,13 @@
 {
   "name": "Can You Hear the Data? ATOM S3R receiver",
-  "version": "2026-10-25",
+  "version": "2026-10-26",
   "new_install_prompt_erase": true,
   "builds": [
     {
       "chipFamily": "ESP32-S3",
       "parts": [
         {
-          "path": "atoms3r-2026-10-25-merged.bin",
+          "path": "atoms3r-2026-10-26-merged.bin",
           "offset": 0
         }
       ]
