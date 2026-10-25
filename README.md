@@ -43,9 +43,11 @@ The design follows ggwave's public API and the documented Audible Normal mode in
 
 Automated tests cover the 140-byte UTF-8 boundary, an actual ggwave Audible Normal encode/decode round trip, production build, mobile and desktop browser UI, microphone denial, and offline reload. These tests do **not** prove over-the-air delivery.
 
-The following require physical devices and remain **unverified** for this app:
+**User-reported physical check (2026-10-25):** The published site displayed and both sending and receiving worked on a PC and an iPad. The user also reported successful testing with three PCs. Browser versions, sample rates, distances, message set, and noise level were not recorded, so these results do not establish a measured success rate or coverage of every browser.
 
-1. This app → this app: send the four preset messages between two phones or a PC and phone, comparing exact UTF-8 text.
+The following physical-device checks remain **unverified** for this app:
+
+1. This app → this app: systematically send all four preset messages between devices and compare exact UTF-8 text, including repeated trials in venue noise.
 2. Klesis → this app and this app → Klesis: use Audible Normal on both sides and compare exact text.
 3. This app → existing ATOM S3R web receiver: enable its `ggwave web on` mode, send the presets from a 48 kHz browser, and compare its display / `GGWAVE WEB RX TEXT:` output.
 4. Repeat on Android Chrome and iOS Safari, including offline use, permission restart, different sample rates, venue noise, and long listening sessions.
