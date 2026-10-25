@@ -14,6 +14,8 @@ An independent, static acoustic data communication web app for Maker Faire Shenz
 
 **Visitor guide:** https://nuwaa.github.io/Can-You-Hear-the-Data/guide.html
 
+**ATOM S3R browser installer:** https://nuwaa.github.io/Can-You-Hear-the-Data/install.en.html
+
 Preset messages are grouped into **Start here**, **Keep talking**, and **M5Stack talk**. The conversation and M5Stack messages follow the selected UI language, so visitors can exchange a question and reply without typing.
 
 ## One sound, many receivers

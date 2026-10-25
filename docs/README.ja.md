@@ -10,6 +10,8 @@ Maker Faire Shenzhen 2026に向けた、独立した音響データ通信Webア�
 
 **ATOM S3Rでも受信できます：** 対応ファームウェアを入れたATOM S3R + ATOMIC ECHO BASEは、通常起動すると受信待機に入り、このWebアプリから送った音の本文を小画面に表示します。[接続・ビルド手順と検証記録](ATOM_S3R_RECEIVER.md)を参照してください。
 
+**ATOM S3Rのブラウザーインストーラー：** https://nuwaa.github.io/Can-You-Hear-the-Data/install.ja.html
+
 **インストール不要で利用できます：** PC・タブレット・スマートフォンの対応ブラウザで https://nuwaa.github.io/Can-You-Hear-the-Data/ を開くだけで使えます。各端末にnpmやネイティブアプリを入れる必要はありません。
 
 例文は**まず試す**、**会話する**、**M5Stackの話**に分けています。会話とM5Stackの例文は表示言語に合わせて切り替わり、文字を入力せずに質問と返事を送れます。
