@@ -2,7 +2,7 @@ import factory from 'ggwave';
 
 export const MAX_BYTES = 140;
 export const PROTOCOL_AUDIBLE_NORMAL = 0;
-export const PRESETS = ['你好深圳！', '你好，台灣！', 'Hello Maker Faire!', 'こんにちは！', '数据传输成功！'];
+export const PRESETS = ['你好深圳！', '哈囉，台灣！', 'Hello Maker Faire!', 'こんにちは！', '数据传输成功！'];
 export const byteCount = (text: string) => new TextEncoder().encode(text).length;
 export function validMessage(text: string): boolean { return byteCount(text) > 0 && byteCount(text) <= MAX_BYTES; }
 
