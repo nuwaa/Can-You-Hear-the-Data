@@ -14,7 +14,7 @@ An independent, static acoustic data communication web app for Maker Faire Shenz
 
 ## One sound, many receivers
 
-Communication is not limited to a pair of devices. A PC can play one signal and multiple visitors can listen with their own phones or tablets at the same time. Each receiver opens the app and taps **Start listening**; the sender selects a preset or enters text and taps **Send with sound**. Any visitor can also use their device to send a reply. No pairing or list of recipients is needed. Reception depends on distance, speaker output, and surrounding noise; playback completion does not confirm that every device decoded the message.
+Communication is not limited to a pair of devices. Like an ordinary spoken conversation, anyone within range of the sound can take part if their device can decode it; no recipient needs to be addressed in advance. A PC can play one signal and multiple visitors can listen with their own phones or tablets at the same time. Each receiver opens the app and taps **Start listening**; the sender selects a preset or enters text and taps **Send with sound**. Any visitor can also use their device to send a reply. No pairing or list of recipients is needed. Reception depends on distance, speaker output, and surrounding noise; playback completion does not confirm that every device decoded the message.
 
 ## Development
 
