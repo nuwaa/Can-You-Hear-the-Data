@@ -10,6 +10,8 @@
 
 **ATOM S3R 硬件接收端：** 配备 ATOMIC ECHO BASE 并刷入配套固件的 ATOM S3R，正常开机后会自动等待接收，并在小屏幕显示本应用发送的文字。请参阅[连接方法、固件及兼容性说明](ATOM_S3R_RECEIVER.md)。
 
+**ATOM S3R 浏览器安装页面：** https://nuwaa.github.io/Can-You-Hear-the-Data/install.zh-CN.html
+
 **无需安装即可使用：** 在电脑、平板或手机的兼容浏览器中打开 https://nuwaa.github.io/Can-You-Hear-the-Data/ 即可使用，不必在每台设备上安装 npm 或原生 App。
 
 预设消息分为**先试试看**、**继续聊天**和**聊聊 M5Stack**。聊天与 M5Stack 例文会随界面语言切换，访客不用打字就能一问一答。
