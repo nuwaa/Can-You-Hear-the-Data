@@ -9,6 +9,8 @@
 
 An independent, static acoustic data communication web app for Maker Faire Shenzhen 2026. It sends UTF-8 text through a speaker and receives it through a microphone using the official [ggwave](https://github.com/ggerganov/ggwave) WebAssembly package. No Wi-Fi, Bluetooth, server, account, or analytics is used for message delivery. Nearby receivers can hear the same signal.
 
+**Project background:** This work began in [AtomS3R-Acoustic-Modem](https://github.com/nuwaa/AtomS3R-Acoustic-Modem). For a variety of reasons, the web app is now developed in this separate repository. The original repository remains the reference for the ATOM S3R receiver and firmware.
+
 **Web app:** https://nuwaa.github.io/Can-You-Hear-the-Data/
 
 **Visitor guide:** https://nuwaa.github.io/Can-You-Hear-the-Data/guide.html
@@ -76,6 +78,8 @@ ggwave 0.4.0 is MIT licensed, copyright © 2020 Georgi Gerganov. Its license is 
 
 这是为 Maker Faire Shenzhen 2026 开发的独立声音数据通信网页应用。它使用官方 [ggwave](https://github.com/ggerganov/ggwave) WebAssembly 库，通过扬声器发送简短的 UTF-8 文字，再用麦克风接收。传递消息不需要 Wi-Fi、蓝牙、服务器、账号或数据分析服务；附近的设备也可能收到同一信号。应用和[访客指南](https://nuwaa.github.io/Can-You-Hear-the-Data/guide.html)提供英语、简体中文、台湾华语（繁体中文）和日语，指南中有二维码。点击预设消息即可免打字体验。
 
+**项目背景：** 这项工作最初始于 [AtomS3R-Acoustic-Modem](https://github.com/nuwaa/AtomS3R-Acoustic-Modem)。基于多方面的考虑，网页应用后来转到这个独立仓库开发。原仓库仍是 ATOM S3R 接收端及其固件的参考。
+
 1. 在两台设备上打开[网页应用](https://nuwaa.github.io/Can-You-Hear-the-Data/)，无需安装 npm 或 App。
 2. 接收方点击**开始接收**，并允许使用麦克风。
 3. 发送方选择预设消息或输入文字，再点击**用声音发送**。请在接收方屏幕上确认文字；播放完毕**不代表**对方已经收到。
@@ -113,6 +117,8 @@ npm run test:browser # Chromium：/usr/bin/chromium 或 CHROMIUM_PATH
 
 這是為 Maker Faire Shenzhen 2026 製作的獨立聲音資料傳輸網頁 App。它使用官方 [ggwave](https://github.com/ggerganov/ggwave) WebAssembly 套件，透過喇叭傳送簡短的 UTF-8 文字，再用麥克風接收。傳送訊息不需要 Wi-Fi、藍牙、伺服器、帳號或流量分析；附近的裝置也可能收到同一段聲音訊號。App 與[訪客使用說明](https://nuwaa.github.io/Can-You-Hear-the-Data/guide.html)支援英文、簡體中文、台灣華語及日文，說明頁提供 QR Code。選擇範例訊息就能不用打字直接體驗。
 
+**專案背景：** 這項工作最初從 [AtomS3R-Acoustic-Modem](https://github.com/nuwaa/AtomS3R-Acoustic-Modem) 開始。基於多方面的考量，網頁 App 後來改在這個獨立儲存庫開發。原儲存庫仍是 ATOM S3R 接收端及其韌體的參考。
+
 1. 在兩台裝置上開啟[網頁 App](https://nuwaa.github.io/Can-You-Hear-the-Data/)，不需要安裝 npm 或 App。
 2. 接收者點選**開始接收**，並允許使用麥克風。
 3. 傳送者選擇範例訊息或輸入文字，再點選**用聲音傳送**。請在接收者畫面確認文字；播放完畢**不代表**對方已收到。
@@ -149,6 +155,8 @@ npm run test:browser # Chromium：/usr/bin/chromium 或 CHROMIUM_PATH
 ### 概要と使い方
 
 Maker Faire Shenzhen 2026に向けた、独立した音響データ通信Webアプリです。公式の[ggwave](https://github.com/ggerganov/ggwave) WebAssemblyパッケージを使い、短いUTF-8文字列をスピーカーから送り、マイクで受け取ります。メッセージの伝送にWi-Fi、Bluetooth、サーバー、アカウント、アクセス解析は不要です。近くにいるほかの端末にも同じ信号が届く場合があります。アプリと[来場者向けガイド](https://nuwaa.github.io/Can-You-Hear-the-Data/guide.html)は4言語に対応し、ガイドのQRコードから自分のスマートフォンで開けます。例文を選べば入力せずに試せます。
+
+**プロジェクトの経緯：** この取り組みは、もともと[AtomS3R-Acoustic-Modem](https://github.com/nuwaa/AtomS3R-Acoustic-Modem)で始まりました。その後、さまざまな事情からWebアプリの開発を独立したこのリポジトリへ移しました。元のリポジトリは引き続きATOM S3R受信側とそのファームウェアの参照先です。
 
 1. 2台の端末で[Webアプリ](https://nuwaa.github.io/Can-You-Hear-the-Data/)を開きます。npmやアプリのインストールは不要です。
 2. 受信側で**受信を開始**を押し、マイクを許可します。
