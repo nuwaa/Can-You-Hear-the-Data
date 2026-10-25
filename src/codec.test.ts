@@ -17,7 +17,8 @@ describe('ggwave modem', () => {
     const sender = new Codec(); const receiver = new Codec();
     await sender.init(48000); await receiver.init(48000);
     try {
-      const samples = sender.encode('你好深圳！');
+      const message = '你好深圳！\nHello Maker Faire!';
+      const samples = sender.encode(message);
       expect(samples.length).toBeGreaterThan(48000);
       let text: string | null = null;
       for(let offset=0;offset<samples.length;offset+=1024) {
@@ -25,7 +26,7 @@ describe('ggwave modem', () => {
         text = receiver.decode(chunk) ?? text;
       }
       for(let i=0;i<20 && !text;i++) text=receiver.decode(new Float32Array(1024)) ?? text;
-      expect(text).toBe('你好深圳！');
+      expect(text).toBe(message);
     } finally { sender.dispose();receiver.dispose(); }
   }, 30000);
 });

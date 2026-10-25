@@ -1,12 +1,13 @@
 import { chromium } from 'playwright';
 import { strict as assert } from 'node:assert';
 
+const baseUrl = process.env.PREVIEW_URL || 'http://127.0.0.1:4173/';
 const browser = await chromium.launch({ executablePath: process.env.CHROMIUM_PATH || '/usr/bin/chromium', headless: true, args: ['--no-sandbox'] });
 try {
   for (const width of [390, 1280]) {
     const page = await browser.newPage({ viewport: { width, height: 850 } });
     const errors = []; page.on('pageerror', error => errors.push(error.message));
-    await page.goto('http://127.0.0.1:4173/');
+    await page.goto(baseUrl);
     assert.equal(await page.locator('h1').textContent(), 'Can You Hear the Data?');
     await page.getByRole('link', { name: /How to use/ }).click();
     assert.match(page.url(), /guide\.html#lang=en/);
@@ -35,13 +36,17 @@ try {
     assert.equal(await page.locator('.send').isEnabled(), false);
     await page.locator('textarea').fill('Hello Maker Faire!');
     assert.equal(await page.locator('.send').isEnabled(), true);
+    assert.equal(await page.locator('.latest').evaluate(node => getComputedStyle(node).whiteSpace), 'pre-wrap');
+    await page.locator('textarea').fill('First line\nSecond line');
+    assert.equal(await page.locator('textarea').inputValue(), 'First line\nSecond line');
+    assert.equal(await page.locator('.send').isEnabled(), true);
     await page.screenshot({ path: `/tmp/hear-data-${width}.png`, fullPage: true });
     assert.deepEqual(errors, []);
     await page.close();
   }
   const context = await browser.newContext();
   await context.addInitScript(() => { Object.defineProperty(navigator, 'mediaDevices', { value: { getUserMedia: async () => { throw new DOMException('Permission denied', 'NotAllowedError'); } } }); });
-  const denied = await context.newPage(); await denied.goto('http://127.0.0.1:4173/');
+  const denied = await context.newPage(); await denied.goto(baseUrl);
   await denied.locator('.listen').click();
   await denied.locator('.alert').waitFor();
   assert.match(await denied.locator('.alert').textContent(), /Permission denied/);
@@ -49,14 +54,14 @@ try {
   await context.close();
   const taiwan = await browser.newContext({ locale: 'zh-TW' });
   const taiwanPage = await taiwan.newPage();
-  await taiwanPage.goto('http://127.0.0.1:4173/');
+  await taiwanPage.goto(baseUrl);
   assert.equal(await taiwanPage.locator('.listen').textContent(), '開始接收');
   await taiwanPage.getByRole('button', { name: '快去入手一個！' }).click();
   assert.equal(await taiwanPage.locator('textarea').inputValue(), '快去入手一個！');
   await taiwanPage.getByRole('link', { name: /使用說明/ }).click();
   await taiwanPage.getByRole('heading', { name: '用聲音傳送文字' }).waitFor();
   await taiwan.close();
-  const offline = await browser.newPage(); await offline.goto('http://127.0.0.1:4173/');
+  const offline = await browser.newPage(); await offline.goto(baseUrl);
   await offline.waitForFunction(() => navigator.serviceWorker?.controller !== null);
   await offline.context().setOffline(true); await offline.reload();
   assert.equal(await offline.locator('h1').textContent(), 'Can You Hear the Data?');
