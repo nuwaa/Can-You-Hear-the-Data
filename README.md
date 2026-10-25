@@ -12,3 +12,5 @@ Choose a language / 选择语言 / 選擇語言 / 言語を選択:
 **Web app:** https://nuwaa.github.io/Can-You-Hear-the-Data/
 
 **Visitor guide:** https://nuwaa.github.io/Can-You-Hear-the-Data/guide.html
+
+**ATOM S3R hardware receiver / ATOM S3R受信機:** [setup, firmware, and compatibility](docs/ATOM_S3R_RECEIVER.md)

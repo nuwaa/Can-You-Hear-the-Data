@@ -6,6 +6,8 @@ An independent, static acoustic data communication web app for Maker Faire Shenz
 
 **Project background:** This work began in [AtomS3R-Acoustic-Modem](https://github.com/nuwaa/AtomS3R-Acoustic-Modem). For a variety of reasons, the web app is now developed in this separate repository. The original repository remains the reference for the ATOM S3R receiver and firmware.
 
+**ATOM S3R hardware receiver:** An ATOM S3R + ATOMIC ECHO BASE running the companion firmware can display messages sent by this app. It starts listening at normal boot. See the [setup, firmware, and compatibility notes](ATOM_S3R_RECEIVER.md).
+
 **Use without installing anything:** Open https://nuwaa.github.io/Can-You-Hear-the-Data/ in a supported browser on a PC, tablet, or smartphone. Visitors do not need to install npm or a native app on each device.
 
 **Web app:** https://nuwaa.github.io/Can-You-Hear-the-Data/
@@ -48,7 +50,7 @@ The app links to a short [visitor guide](https://nuwaa.github.io/Can-You-Hear-th
 
 - The transmitter uses official ggwave 0.4.0, variable-length framing, **Audible Normal protocol 0**, and a 140 UTF-8 byte limit. It shows playback completion, which is **not** a delivery acknowledgment.
 - The receiver asks for microphone permission only after tapping Start listening. It decodes locally, shows recent messages, and lets the visitor copy the newest message. The spectrum and level meter use live microphone analysis.
-- The Web Audio context's actual sample rate is passed to ggwave for both input and output. The ATOM S3R web receiver uses its own 24 kHz input path for a 48 kHz browser source; this app does not add another framing format or modify its firmware.
+- The Web Audio context's actual sample rate is passed to ggwave for both input and output. The ATOM S3R companion firmware has its own receive path; this app does not add another framing format or contain the ATOM firmware.
 - English, Simplified Chinese, Taiwan Mandarin (Traditional Chinese), and Japanese UI are included. Browser language selects the initial UI language, including `zh-TW`/`zh-Hant` for Traditional Chinese.
 
 This targets current Android Chrome, iOS Safari, and desktop Chromium/Safari/Firefox with WebAssembly, Web Audio, microphone permission, and service worker support. iOS may suspend audio when the page is backgrounded or the screen locks; keep the app open and the display awake during reception. In noisy environments, move devices closer and retry at a comfortable volume.
@@ -65,10 +67,10 @@ The following physical-device checks remain **unverified** for this app:
 
 1. This app → this app: systematically send all preset messages between devices and compare exact UTF-8 text, including repeated trials in venue noise.
 2. Klesis → this app and this app → Klesis: use Audible Normal on both sides and compare exact text.
-3. This app → existing ATOM S3R web receiver: enable its `ggwave web on` mode, send the presets from a 48 kHz browser, and compare its display / `GGWAVE WEB RX TEXT:` output.
+3. This app → ATOM S3R: reception and on-device display were user-reported on updated hardware. A systematic sweep of presets, browser sample rates, distances, and venue noise remains unverified; compare the display with `GGWAVE WEB RX TEXT:` for each test.
 4. Browser-specific coverage on Android Chrome and iOS Safari, including offline use, permission restart, different sample rates, venue noise, and long listening sessions. iPhone testing has not been reported.
 
-No ATOM S3R firmware is changed here. The ATOM's separate fixed-length DT chat/ACK mode is not the target of this web app. A played sound is not proof that any receiver decoded it.
+The ATOM S3R firmware is maintained in the [companion repository](https://github.com/nuwaa/AtomS3R-Acoustic-Modem/tree/feature/ggwave). The ATOM's separate fixed-length DT chat/ACK mode is not the target of this web app. A played sound is not proof that any receiver decoded it.
 
 ## License notices
 
