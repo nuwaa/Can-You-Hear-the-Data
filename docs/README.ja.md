@@ -8,6 +8,8 @@ Maker Faire Shenzhen 2026に向けた、独立した音響データ通信Webア�
 
 **プロジェクトの経緯：** この取り組みは、もともと[AtomS3R-Acoustic-Modem](https://github.com/nuwaa/AtomS3R-Acoustic-Modem)で始まりました。その後、さまざまな事情からWebアプリの開発を独立したこのリポジトリへ移しました。元のリポジトリは引き続きATOM S3R受信側とそのファームウェアの参照先です。
 
+**ATOM S3Rでも受信できます：** 対応ファームウェアを入れたATOM S3R + ATOMIC ECHO BASEは、通常起動すると受信待機に入り、このWebアプリから送った音の本文を小画面に表示します。[接続・ビルド手順と検証記録](ATOM_S3R_RECEIVER.md)を参照してください。
+
 **インストール不要で利用できます：** PC・タブレット・スマートフォンの対応ブラウザで https://nuwaa.github.io/Can-You-Hear-the-Data/ を開くだけで使えます。各端末にnpmやネイティブアプリを入れる必要はありません。
 
 例文は**まず試す**、**会話する**、**M5Stackの話**に分けています。会話とM5Stackの例文は表示言語に合わせて切り替わり、文字を入力せずに質問と返事を送れます。
@@ -36,6 +38,6 @@ Vite、TypeScript、Web Audio API、Canvas、ggwave、Service Workerで構成し
 - 送信はggwave 0.4.0の可変長フレーム、**Audible Normalプロトコル0**を使い、上限は**UTF-8で140バイト**です。受信にはブラウザのAudioContextの実際のサンプルレートを使います。受信文字列はHTMLとして実行せず、テキストとして表示します。
 - 自動テストではバイト数の上限、ggwaveのエンコード・デコード、型チェック、本番ビルド、PC・スマートフォン幅の画面、マイク拒否時の表示、オフライン再読み込みを確認しています。
 - **ユーザーによる実機確認（2026-10-25）：** PC、iPad、Android端末間の双方向通信を確認しました。PC3台でも試しています。ブラウザのバージョン、サンプルレート、距離、メッセージの組み合わせ、騒音条件は記録していないため、成功率の数値は示していません。
-- **未検証：** 会場の騒音下での全例文の系統的な試験、Klesis ↔ 本アプリ、本アプリ → 既存ATOM S3RのWeb受信モード、iPhone、長時間受信・オフライン・権限復帰の試験。
+- **未検証：** 会場の騒音下での全例文の系統的な試験、Klesis ↔ 本アプリ、ATOM S3Rとの通信成功率、iPhone、長時間受信・オフライン・権限復帰の試験。
 
-ATOM S3Rのファームウェアは変更していません。ATOM側の固定長DTチャット／ACKモードも使用しません。[Klesis](https://github.com/nolimitwaiz/klesis)は相互運用性の参考にしましたが、再利用ライセンスが確認できなかったためコードや素材はコピーしていません。ggwave 0.4.0はMITライセンス、著作権© 2020 Georgi Gerganovです。詳細は[THIRD_PARTY_NOTICES.md](../THIRD_PARTY_NOTICES.md)を参照してください。他の依存関係には各ライセンスが適用されます。本アプリ自体のライセンスは未選定です。
+ATOM S3Rの対応ファームウェアは[別リポジトリ](https://github.com/nuwaa/AtomS3R-Acoustic-Modem/tree/feature/ggwave)で管理しています。このWebアプリはATOM側の固定長DTチャット／ACKモードを使用しません。[Klesis](https://github.com/nolimitwaiz/klesis)は相互運用性の参考にしましたが、再利用ライセンスが確認できなかったためコードや素材はコピーしていません。ggwave 0.4.0はMITライセンス、著作権© 2020 Georgi Gerganovです。詳細は[THIRD_PARTY_NOTICES.md](../THIRD_PARTY_NOTICES.md)を参照してください。他の依存関係には各ライセンスが適用されます。本アプリ自体のライセンスは未選定です。

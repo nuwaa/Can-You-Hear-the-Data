@@ -8,6 +8,8 @@
 
 **專案背景：** 這項工作最初從 [AtomS3R-Acoustic-Modem](https://github.com/nuwaa/AtomS3R-Acoustic-Modem) 開始。基於多方面的考量，網頁 App 後來改在這個獨立儲存庫開發。原儲存庫仍是 ATOM S3R 接收端及其韌體的參考。
 
+**ATOM S3R 硬體接收端：** 裝上 ATOMIC ECHO BASE 並寫入配套韌體的 ATOM S3R，正常開機後會自動等待接收，在小螢幕顯示本 App 送出的文字。請參閱[連接方式、韌體及相容性說明](ATOM_S3R_RECEIVER.md)。
+
 **免安裝即可使用：** 在電腦、平板或手機的相容瀏覽器開啟 https://nuwaa.github.io/Can-You-Hear-the-Data/ 即可使用，不必在每台裝置安裝 npm 或原生 App。
 
 範例訊息分成**先試試看**、**繼續聊聊**及**聊聊 M5Stack**。聊天和 M5Stack 範例會依介面語言切換，訪客不用打字就能一問一答。
@@ -36,6 +38,6 @@ npm run test:browser # Chromium：/usr/bin/chromium 或 CHROMIUM_PATH
 - 傳送使用 ggwave 0.4.0 的可變長度影格、**Audible Normal 協定 0**，上限為 **140 個 UTF-8 位元組**。接收依照瀏覽器 AudioContext 的實際取樣率運作；收到的內容只會顯示為文字，不會當成 HTML 執行。
 - 自動測試涵蓋位元組上限、ggwave 編解碼、型別檢查、正式建置、電腦與手機尺寸的畫面、拒絕麥克風權限，以及離線重新開啟。
 - **使用者回報的實機驗證（2026-10-25）：** PC、iPad 和 Android 裝置之間已完成雙向通訊，也試過三台 PC。未記錄瀏覽器版本、取樣率、距離、訊息組合或噪音條件，因此沒有量測成功率。
-- **尚未驗證：** 在展場噪音下系統性測試所有範例訊息、Klesis ↔ 本 App、本 App → 現有 ATOM S3R 網頁接收模式、iPhone，以及長時間接收、離線與權限恢復測試。
+- **尚未驗證：** 在展場噪音下系統性測試所有範例訊息、Klesis ↔ 本 App、與 ATOM S3R 通訊的成功率、iPhone，以及長時間接收、離線與權限恢復測試。
 
-本專案不修改 ATOM S3R 韌體，也不使用其獨立的固定長度 DT 聊天／ACK 模式。[Klesis](https://github.com/nolimitwaiz/klesis) 僅作為互通性參考；因為沒有確認其重複使用授權，本專案未複製其程式碼或素材。ggwave 0.4.0 採 MIT 授權，著作權 © 2020 Georgi Gerganov；詳見 [THIRD_PARTY_NOTICES.md](../THIRD_PARTY_NOTICES.md)。其他相依套件保留各自的授權。本 App 本身的授權尚未決定。
+ATOM S3R 的配套韌體在[獨立儲存庫](https://github.com/nuwaa/AtomS3R-Acoustic-Modem/tree/feature/ggwave)維護。本 App 不使用 ATOM 獨立的固定長度 DT 聊天／ACK 模式。[Klesis](https://github.com/nolimitwaiz/klesis) 僅作為互通性參考；因為沒有確認其重複使用授權，本專案未複製其程式碼或素材。ggwave 0.4.0 採 MIT 授權，著作權 © 2020 Georgi Gerganov；詳見 [THIRD_PARTY_NOTICES.md](../THIRD_PARTY_NOTICES.md)。其他相依套件保留各自的授權。本 App 本身的授權尚未決定。
