@@ -49,7 +49,7 @@ const messages: Record<Lang, Message> = {
     download: '下載韌體', source: '原始碼與編譯說明', language: '語言'
   },
   ja: {
-    title: 'ATOM S3R受信機をインストール', intro: 'Arduino開発環境を用意せず、ブラウザーから受信ファームウェアを書き込めます。',
+    title: 'ATOM S3Rにインストール', intro: 'Arduino開発環境を用意せず、ブラウザーから受信ファームウェアを書き込めます。',
     app: 'Webアプリ', guide: '使い方', before: '準備',
     steps: ['ATOM S3RにATOMIC ECHO BASEを装着します。',
       'Windows、macOS、LinuxのPC版ChromeまたはEdgeでこのページを開きます。USBデータケーブルでATOM S3Rを接続し、シリアルモニターを閉じてください。',

@@ -27,7 +27,7 @@ function render() {
   const languages=node('nav','language','');languages.setAttribute('aria-label',m.language);
   for(const [key,label] of languageOptions){const button=node('button',key===lang?'selected':'',label);button.type='button';button.onclick=()=>{lang=key;history.replaceState(null,'',`#lang=${lang}`);render();};languages.append(button);}header.append(languages);shell.append(header);
   const open=node('a','primary guide-cta',m.open+' →');open.href=`./#lang=${lang}`;shell.append(open);
-  const installerLabels: Record<Lang,string> = { en:'Install ATOM S3R', zh:'安装 ATOM S3R', 'zh-TW':'安裝 ATOM S3R', ja:'ATOM S3Rをインストール' };
+  const installerLabels: Record<Lang,string> = { en:'Install ATOM S3R', zh:'安装 ATOM S3R', 'zh-TW':'安裝 ATOM S3R', ja:'ATOM S3Rにインストール' };
   const installerPages: Record<Lang,string> = { en:'install.en.html', zh:'install.zh-CN.html', 'zh-TW':'install.zh-TW.html', ja:'install.ja.html' };
   const install=node('a','guide-link',installerLabels[lang]+' ↗');install.href='./'+installerPages[lang];shell.append(install);
   const stackchanInstallerLabels: Record<Lang,string> = { en:'Install on Stack-chan', zh:'安装到 M5 Stack-chan', 'zh-TW':'安裝到 M5 Stack-chan', ja:'ｽﾀｯｸﾁｬﾝにインストール' };

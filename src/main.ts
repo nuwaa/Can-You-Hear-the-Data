@@ -29,7 +29,7 @@ function render() {
   const language = el('div','language'); language.setAttribute('aria-label',m.language);
   for (const [key,label] of languageOptions) { const b=el('button',key===lang?'selected':'',label); b.type='button'; b.onclick=()=>{lang=key;render();}; language.append(b); } header.append(language);
   const guide=el('a','guide-link',m.guide+' ↗'); guide.href=`./guide.html#lang=${lang}`; shell.append(guide);
-  const installerLabels: Record<Lang,string> = { en:'Install ATOM S3R', zh:'安装 ATOM S3R', 'zh-TW':'安裝 ATOM S3R', ja:'ATOM S3Rをインストール' };
+  const installerLabels: Record<Lang,string> = { en:'Install ATOM S3R', zh:'安装 ATOM S3R', 'zh-TW':'安裝 ATOM S3R', ja:'ATOM S3Rにインストール' };
   const installerPages: Record<Lang,string> = { en:'install.en.html', zh:'install.zh-CN.html', 'zh-TW':'install.zh-TW.html', ja:'install.ja.html' };
   const install=el('a','guide-link',installerLabels[lang]+' ↗'); install.href='./'+installerPages[lang]; shell.append(install);
   const stackchanInstallerLabels: Record<Lang,string> = { en:'Install on Stack-chan', zh:'安装到 M5 Stack-chan', 'zh-TW':'安裝到 M5 Stack-chan', ja:'ｽﾀｯｸﾁｬﾝにインストール' };
