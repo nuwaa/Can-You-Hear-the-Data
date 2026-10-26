@@ -32,6 +32,9 @@ function render() {
   const installerLabels: Record<Lang,string> = { en:'Install ATOM S3R', zh:'安装 ATOM S3R', 'zh-TW':'安裝 ATOM S3R', ja:'ATOM S3Rをインストール' };
   const installerPages: Record<Lang,string> = { en:'install.en.html', zh:'install.zh-CN.html', 'zh-TW':'install.zh-TW.html', ja:'install.ja.html' };
   const install=el('a','guide-link',installerLabels[lang]+' ↗'); install.href='./'+installerPages[lang]; shell.append(install);
+  const stackchanInstallerLabels: Record<Lang,string> = { en:'Install on Stack-chan', zh:'安装到 M5 Stack-chan', 'zh-TW':'安裝到 M5 Stack-chan', ja:'ｽﾀｯｸﾁｬﾝにインストール' };
+  const stackchanInstallerPages: Record<Lang,string> = { en:'install-stackchan.en.html', zh:'install-stackchan.zh-CN.html', 'zh-TW':'install-stackchan.zh-TW.html', ja:'install-stackchan.ja.html' };
+  const installStackchan=el('a','guide-link',stackchanInstallerLabels[lang]+' ↗'); installStackchan.href='./'+stackchanInstallerPages[lang]; shell.append(installStackchan);
   const grid=el('div','grid'); shell.append(grid);
   const rx=el('section','panel receiver'); grid.append(rx);
   const rxHead=el('div','section-head'); rxHead.append(el('span','kicker','01 / '+m.receive),el('span','status '+(link.active?'on':''),statusText|| (link.active?m.listening:m.idle))); rx.append(rxHead);

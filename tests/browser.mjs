@@ -80,6 +80,18 @@ try {
     assert.equal(await installer.locator('.site-footer a').getAttribute('href'), 'https://x.com/4989er');
     await installer.close();
   }
+  for (const [language, label, pageName] of [
+    ['en', 'Install on Stack-chan', 'install-stackchan.en.html'],
+    ['zh', '安装到 M5 Stack-chan', 'install-stackchan.zh-CN.html'],
+    ['zh-TW', '安裝到 M5 Stack-chan', 'install-stackchan.zh-TW.html'],
+    ['ja', 'ｽﾀｯｸﾁｬﾝにインストール', 'install-stackchan.ja.html'],
+  ]) {
+    const home = await browser.newPage();
+    await home.goto(`${baseUrl}#lang=${language}`);
+    const installerLink = home.getByRole('link', { name: new RegExp(label) });
+    assert.equal(await installerLink.getAttribute('href'), `./${pageName}`);
+    await home.close();
+  }
   const offline = await browser.newPage(); await offline.goto(baseUrl);
   await offline.waitForFunction(() => navigator.serviceWorker?.controller !== null);
   await offline.context().setOffline(true); await offline.reload();
