@@ -30,6 +30,9 @@ function render() {
   const installerLabels: Record<Lang,string> = { en:'Install ATOM S3R', zh:'安装 ATOM S3R', 'zh-TW':'安裝 ATOM S3R', ja:'ATOM S3Rをインストール' };
   const installerPages: Record<Lang,string> = { en:'install.en.html', zh:'install.zh-CN.html', 'zh-TW':'install.zh-TW.html', ja:'install.ja.html' };
   const install=node('a','guide-link',installerLabels[lang]+' ↗');install.href='./'+installerPages[lang];shell.append(install);
+  const stackchanInstallerLabels: Record<Lang,string> = { en:'Install on Stack-chan', zh:'安装到 M5 Stack-chan', 'zh-TW':'安裝到 M5 Stack-chan', ja:'ｽﾀｯｸﾁｬﾝにインストール' };
+  const stackchanInstallerPages: Record<Lang,string> = { en:'install-stackchan.en.html', zh:'install-stackchan.zh-CN.html', 'zh-TW':'install-stackchan.zh-TW.html', ja:'install-stackchan.ja.html' };
+  const installStackchan=node('a','guide-link',stackchanInstallerLabels[lang]+' ↗');installStackchan.href='./'+stackchanInstallerPages[lang];shell.append(installStackchan);
   const grid=node('div','guide-grid','');shell.append(grid);
   grid.append(section('01',m.receive,m.receiveSteps),section('02',m.send,m.sendSteps));
   const easy=node('section','panel guide-panel','');easy.append(node('div','kicker','03'),node('h2','',m.easy),node('p','',m.easyBody));grid.append(easy);

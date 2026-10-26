@@ -91,6 +91,11 @@ try {
     const installerLink = home.getByRole('link', { name: new RegExp(label) });
     assert.equal(await installerLink.getAttribute('href'), `./${pageName}`);
     await home.close();
+    const guide = await browser.newPage();
+    await guide.goto(`${baseUrl}guide.html#lang=${language}`);
+    const guideInstallerLink = guide.getByRole('link', { name: new RegExp(label) });
+    assert.equal(await guideInstallerLink.getAttribute('href'), `./${pageName}`);
+    await guide.close();
   }
   const offline = await browser.newPage(); await offline.goto(baseUrl);
   await offline.waitForFunction(() => navigator.serviceWorker?.controller !== null);
