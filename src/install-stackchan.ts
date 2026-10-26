@@ -12,8 +12,8 @@ const root = document.querySelector<HTMLDivElement>('#installer')!;
 const shell = el('main', 'shell installer-shell'); root.append(shell);
 const header = el('header', 'header'); const brand = el('div', 'brand');
 brand.append(
-  el('div', 'eyebrow', 'CAN YOU HEAR THE DATA? / STACK-CHAN CoreS3'),
-  el('h1', '', 'ｽﾀｯｸﾁｬﾝをインストール'),
+  el('div', 'eyebrow', 'CAN YOU HEAR THE DATA? / M5 STACK-CHAN'),
+  el('h1', '', 'ｽﾀｯｸﾁｬﾝにインストール'),
   el('p', 'subtitle', 'ggwaveの音を受信して、表情・首振り・吹き出し・音声で反応する完全オフライン版です。'),
 );
 header.append(brand); shell.append(header);
@@ -24,17 +24,17 @@ shell.append(navigation);
 const before = el('section', 'panel installer-panel'); before.append(el('h2', '', '準備'));
 const steps = el('ol', 'guide-steps');
 for (const step of [
-  'M5Stack CoreS3をｽﾀｯｸﾁｬﾝベース（公式またはTakao Base）に装着します。',
+  'このファームウェアはM5StackChan用です。',
   'Windows、macOS、LinuxのPC版ChromeまたはEdgeでこのページを開きます。USBデータケーブルでCoreS3を接続し、シリアルモニターを閉じてください。',
   '下の2項目を確認してINSTALLを押し、CoreS3を選びます。書き込み確認画面でも端末を確認してください。',
 ]) steps.append(el('li', '', step));
 before.append(steps);
-before.append(el('p', 'installer-warning', 'これはCoreS3版ｽﾀｯｸﾁｬﾝ専用です。ATOM S3Rには書き込まないでください。選択した端末の既存ファームウェアは上書きされます。'));
+before.append(el('p', 'installer-warning', 'これはM5ｽﾀｯｸﾁｬﾝ専用です。ATOM S3Rには書き込まないでください。選択した端末の既存ファームウェアは上書きされます。'));
 function confirmation(id: string, label: string): HTMLInputElement {
   const wrapper = el('label', 'installer-check'); const input = document.createElement('input');
   input.id = id; input.type = 'checkbox'; wrapper.append(input, document.createTextNode(` ${label}`)); before.append(wrapper); return input;
 }
-const board = confirmation('confirm-board', '接続した端末はM5Stack CoreS3版ｽﾀｯｸﾁｬﾝです（ATOM S3Rではありません）。');
+const board = confirmation('confirm-board', '接続した端末はM5ｽﾀｯｸﾁｬﾝです（ATOM S3Rではありません）。');
 const overwrite = confirmation('confirm-overwrite', '既存のファームウェアが上書きされることを了承します。');
 const status = el('p', 'installer-status'); status.setAttribute('role', 'status'); before.append(status);
 const control = el('div', 'installer-control'); control.hidden = true;
