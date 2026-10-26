@@ -12,6 +12,10 @@ Maker Faire Shenzhen 2026に向けた、独立した音響データ通信Webア�
 
 **ATOM S3Rのブラウザーインストーラー：** https://nuwaa.github.io/Can-You-Hear-the-Data/install.ja.html
 
+**M5ｽﾀｯｸﾁｬﾝのブラウザーインストーラー：** https://nuwaa.github.io/Can-You-Hear-the-Data/install-stackchan.ja.html
+
+開発・実機確認・4言語版公開の経緯は[M5ｽﾀｯｸﾁｬﾝ対応履歴](STACKCHAN_SUPPORT_HISTORY.md)に記録しています。
+
 **インストール不要で利用できます：** PC・タブレット・スマートフォンの対応ブラウザで https://nuwaa.github.io/Can-You-Hear-the-Data/ を開くだけで使えます。各端末にnpmやネイティブアプリを入れる必要はありません。
 
 例文は**まず試す**、**会話する**、**M5Stackの話**に分けています。会話とM5Stackの例文は表示言語に合わせて切り替わり、文字を入力せずに質問と返事を送れます。

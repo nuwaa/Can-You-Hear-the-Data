@@ -20,3 +20,9 @@ Language-specific installer pages: [English](https://nuwaa.github.io/Can-You-Hea
 **ATOM S3R hardware receiver / ATOM S3R受信機:** [setup, firmware, and compatibility](docs/ATOM_S3R_RECEIVER.md)
 
 **ATOM S3R support history / 対応履歴:** [2026-10-25–26 development and installer record](docs/ATOM_S3R_SUPPORT_HISTORY.md)
+
+**M5 Stack-chan browser installer:** https://nuwaa.github.io/Can-You-Hear-the-Data/install-stackchan.html
+
+Language-specific M5 Stack-chan installer pages: [English](https://nuwaa.github.io/Can-You-Hear-the-Data/install-stackchan.en.html) · [简体中文](https://nuwaa.github.io/Can-You-Hear-the-Data/install-stackchan.zh-CN.html) · [繁體中文](https://nuwaa.github.io/Can-You-Hear-the-Data/install-stackchan.zh-TW.html) · [日本語](https://nuwaa.github.io/Can-You-Hear-the-Data/install-stackchan.ja.html)
+
+**M5 Stack-chan support history / 対応履歴:** [2026-10-26 firmware and multilingual installer record](docs/STACKCHAN_SUPPORT_HISTORY.md)
